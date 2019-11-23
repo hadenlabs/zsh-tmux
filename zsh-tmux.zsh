@@ -9,13 +9,13 @@
 #
 tmux_package_name=tmux
 
-plugin_dir=$(dirname "${0}":A)
+ZSH_TMUX_ROOT=$(dirname "${0}":A)
 
 # shellcheck source=/dev/null
-source "${plugin_dir}"/src/helpers/messages.zsh
+source "${ZSH_TMUX_ROOT}"/src/helpers/messages.zsh
 
 # shellcheck source=/dev/null
-source "${plugin_dir}"/src/helpers/tools.zsh
+source "${ZSH_TMUX_ROOT}"/src/helpers/tools.zsh
 
 function tmux::install {
     message_info "Installing ${tmux_package_name}"
@@ -32,7 +32,17 @@ function tpm::install {
     message_success "Installed tpm for ${tmux_package_name}"
 }
 
+function rsync::install {
+    message_info "Installing rsync for ${tmux_package_name}"
+    if ! type -p brew > /dev/null; then
+        message_error "it's neccesary brew, add: luismayta/zsh-brew"
+    fi
+    brew install rsync
+    message_success "Installed rsync ${tmux_package_name}"
+}
+
 if ! type -p tmux > /dev/null; then tmux::install; fi
+if ! type -p rsync > /dev/null; then rync::install; fi
 if [ ! -e "${HOME}/.tmux/plugins/tpm" ]; then tpm::install; fi
 
 function tmux::dependences {
@@ -46,7 +56,7 @@ function tmux::post_install {
 }
 
 function tmux::sync {
-
+    rsync -avzh --progress "${ZSH_TMUX_ROOT}/conf/" "${HOME}/"
 }
 
 tmux::sync
