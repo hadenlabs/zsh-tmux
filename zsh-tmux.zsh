@@ -9,13 +9,6 @@
 #
 tmux_package_name=tmux
 
-ZSH_TMUX_ROOT=$(dirname "${0}":A)
-
-# shellcheck source=/dev/null
-source "${ZSH_TMUX_ROOT}"/src/helpers/messages.zsh
-
-# shellcheck source=/dev/null
-source "${ZSH_TMUX_ROOT}"/src/helpers/tools.zsh
 
 function tmux::install {
     message_info "Installing ${tmux_package_name}"
@@ -33,10 +26,10 @@ function tpm::install {
 }
 
 function rsync::install {
-    message_info "Installing rsync for ${tmux_package_name}"
     if ! type -p brew > /dev/null; then
         message_error "it's neccesary brew, add: luismayta/zsh-brew"
     fi
+    message_info "Installing rsync for ${tmux_package_name}"
     brew install rsync
     message_success "Installed rsync ${tmux_package_name}"
 }
