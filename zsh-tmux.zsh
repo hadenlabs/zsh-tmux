@@ -7,6 +7,8 @@
 # Authors:
 #   Luis Mayta <slovacus@gmail.com>
 #
+
+ZSH_TMUX_ROOT=$(dirname "${0}":A)
 tmux_package_name=tmux
 
 
