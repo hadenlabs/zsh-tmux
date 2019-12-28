@@ -19,6 +19,7 @@ function tmux::install {
     fi
     brew install tmux
     message_success "Installed ${tmux_package_name}"
+    tmux::post_install
 }
 
 function tpm::install {
@@ -36,10 +37,6 @@ function rsync::install {
     message_success "Installed rsync ${tmux_package_name}"
 }
 
-if ! type -p tmux > /dev/null; then tmux::install; fi
-if ! type -p rsync > /dev/null; then rync::install; fi
-if [ ! -e "${HOME}/.tmux/plugins/tpm" ]; then tpm::install; fi
-
 function tmux::dependences {
     message_info "Installing dependences for ${tmux_package_name}"
     message_success "Installed dependences for ${tmux_package_name}"
@@ -47,6 +44,7 @@ function tmux::dependences {
 
 function tmux::post_install {
     message_info "Post Install ${tmux_package_name}"
+    tmux::sync
     message_success "Success Install ${tmux_package_name}"
 }
 
@@ -54,4 +52,6 @@ function tmux::sync {
     rsync -avzh --progress "${ZSH_TMUX_ROOT}/conf/" "${HOME}/"
 }
 
-tmux::sync
+if ! type -p tmux > /dev/null; then tmux::install; fi
+if ! type -p rsync > /dev/null; then rync::install; fi
+if [ ! -e "${HOME}/.tmux/plugins/tpm" ]; then tpm::install; fi
