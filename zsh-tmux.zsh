@@ -8,14 +8,16 @@
 #   Luis Mayta <slovacus@gmail.com>
 #
 
-ZSH_TMUX_ROOT=$(dirname "${0}":A)
+ZSH_TMUX_ROOT=$(dirname "${0}")
+TMUX_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew branch:develop"
 tmux_package_name=tmux
 
 
 function tmux::install {
     message_info "Installing ${tmux_package_name}"
     if ! type -p brew > /dev/null; then
-        message_error "it's neccesary brew, add: luismayta/zsh-brew"
+        message_warning "${TMUX_MESSAGE_BREW}"
+        return
     fi
     brew install tmux
     message_success "Installed ${tmux_package_name}"
@@ -30,7 +32,8 @@ function tpm::install {
 
 function rsync::install {
     if ! type -p brew > /dev/null; then
-        message_error "it's neccesary brew, add: luismayta/zsh-brew"
+        message_warning "${TMUX_MESSAGE_BREW}"
+        return
     fi
     message_info "Installing rsync for ${tmux_package_name}"
     brew install rsync
