@@ -6,7 +6,7 @@ If you have any problems with starting zsh-tmux, please report it on GitHub: htt
 
 
 Who is behind zsh-tmux
------------------------
+----------------------
 
 **Organisation**:
 
