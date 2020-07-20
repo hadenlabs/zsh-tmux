@@ -7,3 +7,4 @@ out/
 .next/
 storybook-static/
 __snapshots__/
+out/
