@@ -49,6 +49,7 @@ docker-dev:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml
 
 docker-test-run:=$(docker-test) run --rm ${DOCKER_SERVICE_TEST}
 docker-dev-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_DEV}
+docker-yarn-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_YARN}
 
 include provision/make/*.mk
 
