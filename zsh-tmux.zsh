@@ -10,6 +10,7 @@
 
 ZSH_TMUX_ROOT=$(dirname "${0}")
 TMUX_MESSAGE_BREW="Please install brew or use antibody bundle luismayta/zsh-brew branch:develop"
+TMUX_FILE_SETTINGS="${HOME}"/.tmux.conf
 tmux_package_name=tmux
 
 
@@ -53,6 +54,15 @@ function tmux::post_install {
 
 function tmux::sync {
     rsync -avzh --progress "${ZSH_TMUX_ROOT}/conf/" "${HOME}/"
+}
+
+# edittmux edit settings for tmux
+function edittmux {
+    if [ -z "${EDITOR}" ]; then
+        message_warning "it's neccesary the var EDITOR"
+        return
+    fi
+    "${EDITOR}" "${TMUX_FILE_SETTINGS}"
 }
 
 if ! type -p tmux > /dev/null; then tmux::install; fi
