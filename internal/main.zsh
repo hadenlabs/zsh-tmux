@@ -20,4 +20,5 @@ internal::main::factory
 
 if ! type -p rsync > /dev/null; then rync::install; fi
 if ! type -p tmux > /dev/null; then tmux::install; fi
+if ! type -p tmuxinator > /dev/null; then tmuxinator::install; fi
 [ -e "${TMUX_TPM_PATH}" ] || tpm::install
