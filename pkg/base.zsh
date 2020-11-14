@@ -1,11 +1,17 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
-# edittmux edit settings for tmux
-function edittmux {
-    if [ -z "${EDITOR}" ]; then
-        message_warning "it's neccesary the var EDITOR"
-        return
-    fi
-    "${EDITOR}" "${TMUX_FILE_SETTINGS}"
+function tmux::dependences {
+    message_info "Installing dependences for ${TMUX_PACKAGE_NAME}"
+    message_success "Installed dependences for ${TMUX_PACKAGE_NAME}"
+}
+
+function tmux::post_install {
+    message_info "Post Install ${TMUX_PACKAGE_NAME}"
+    tmux::sync
+    message_success "Success Install ${TMUX_PACKAGE_NAME}"
+}
+
+function tmux::sync {
+    rsync -avzh --progress "${ZSH_TMUX_PATH}/conf/" "${HOME}/"
 }
