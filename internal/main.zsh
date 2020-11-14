@@ -18,7 +18,7 @@ function internal::main::factory {
 
 internal::main::factory
 
-if ! type -p rsync > /dev/null; then rync::install; fi
-if ! type -p tmux > /dev/null; then tmux::install; fi
-if ! type -p tmuxinator > /dev/null; then tmuxinator::install; fi
-[ -e "${TMUX_TPM_PATH}" ] || tpm::install
+if ! type -p rsync > /dev/null; then tmux::internal::rync::install; fi
+if ! type -p tmux > /dev/null; then tmux::internal::tmux::install; fi
+if ! type -p tmuxinator > /dev/null; then tmux::internal::tmuxinator::install; fi
+[ -e "${TMUX_TPM_PATH}" ] || tmux::internal::tpm::install

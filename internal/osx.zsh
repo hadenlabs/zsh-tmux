@@ -10,3 +10,5 @@ function tmux::internal::reattach-to-user-namespace::install {
     brew install reattach-to-user-namespace
     message_success "Installed reattach-to-user-namespace ${TMUX_PACKAGE_NAME}"
 }
+
+if ! type -p reattach-to-user-namespace > /dev/null; then tmux::internal::reattach-to-user-namespace::install; fi
