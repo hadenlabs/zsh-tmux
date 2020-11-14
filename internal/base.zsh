@@ -1,7 +1,7 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
-function tmux::install {
+function tmux::internal::tmux::install {
     message_info "Installing ${TMUX_PACKAGE_NAME}"
     if ! type -p brew > /dev/null; then
         message_warning "${TMUX_MESSAGE_BREW}"
@@ -12,7 +12,7 @@ function tmux::install {
     tmux::post_install
 }
 
-function tmuxinator::install {
+function tmux::internal::tmuxinator::install {
     message_info "Installing tmuxinator for ${TMUX_PACKAGE_NAME}"
     if ! type -p gem > /dev/null; then
         message_warning "${TMUX_MESSAGE_RVM}"
@@ -22,13 +22,13 @@ function tmuxinator::install {
     message_success "Installed tmuxinator for ${TMUX_PACKAGE_NAME}"
 }
 
-function tpm::install {
+function tmux::internal::tpm::install {
     message_info "Installing tpm for ${TMUX_PACKAGE_NAME}"
     git clone https://github.com/tmux-plugins/tpm "${TMUX_TPM_PATH}"
     message_success "Installed tpm for ${TMUX_PACKAGE_NAME}"
 }
 
-function rsync::install {
+function tmux::internal::rsync::install {
     if ! type -p brew > /dev/null; then
         message_warning "${TMUX_MESSAGE_BREW}"
         return
@@ -37,19 +37,3 @@ function rsync::install {
     brew install rsync
     message_success "Installed rsync ${TMUX_PACKAGE_NAME}"
 }
-
-function tmux::dependences {
-    message_info "Installing dependences for ${TMUX_PACKAGE_NAME}"
-    message_success "Installed dependences for ${TMUX_PACKAGE_NAME}"
-}
-
-function tmux::post_install {
-    message_info "Post Install ${TMUX_PACKAGE_NAME}"
-    tmux::sync
-    message_success "Success Install ${TMUX_PACKAGE_NAME}"
-}
-
-function tmux::sync {
-    rsync -avzh --progress "${ZSH_TMUX_PATH}/conf/" "${HOME}/"
-}
-
