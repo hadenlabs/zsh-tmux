@@ -16,6 +16,9 @@ function pkg::main::factory {
     esac
     # shellcheck source=/dev/null
     source "${ZSH_TMUX_PATH}"/pkg/helper.zsh
+
+    # shellcheck source=/dev/null
+    source "${ZSH_TMUX_PATH}"/pkg/alias.zsh
 }
 
 pkg::main::factory
