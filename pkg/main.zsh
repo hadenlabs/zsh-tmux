@@ -1,7 +1,7 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
-function pkg::main::factory {
+function tmux::pkg::main::factory {
     # shellcheck source=/dev/null
     source "${ZSH_TMUX_PATH}"/pkg/base.zsh
     case "${OSTYPE}" in
@@ -21,4 +21,4 @@ function pkg::main::factory {
     source "${ZSH_TMUX_PATH}"/pkg/alias.zsh
 }
 
-pkg::main::factory
+tmux::pkg::main::factory
