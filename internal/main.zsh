@@ -1,7 +1,7 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
-function internal::main::factory {
+function tmux::internal::main::factory {
     # shellcheck source=/dev/null
     source "${ZSH_TMUX_PATH}"/internal/base.zsh
     case "${OSTYPE}" in
@@ -16,7 +16,7 @@ function internal::main::factory {
     esac
 }
 
-internal::main::factory
+tmux::internal::main::factory
 
 if ! type -p rsync > /dev/null; then tmux::internal::rync::install; fi
 if ! type -p tmux > /dev/null; then tmux::internal::tmux::install; fi
