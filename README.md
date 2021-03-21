@@ -14,7 +14,7 @@
 
 # zsh-tmux
 
-[![Lint](https://github.com/luismayta/zsh-tmux/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/luismayta/zsh-tmux/actions) [![Issues](https://img.shields.io/github/issues/luismayta/zsh-tmux.svg)](https://github.com/luismayta/zsh-tmux/issues) [![Latest Release](https://img.shields.io/github/release/luismayta/zsh-tmux.svg)](https://github.com/luismayta/zsh-tmux/releases)
+[![Lint](https://github.com/hadenlabs/zsh-tmux/actions/workflows/lint.yml/badge.svg?branch=develop)](https://github.com/hadenlabs/zsh-tmux/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-tmux.svg)](https://github.com/hadenlabs/zsh-tmux/issues) [![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-tmux.svg)](https://github.com/hadenlabs/zsh-tmux/releases)
 
 zsh-tmux plugin for zsh.
 
@@ -31,7 +31,7 @@ This is a list of plugins that need to be installed previously to enjoy all the 
 If you're using [oh-my-zsh](https://gitub.com/robbyrussell/oh-my-zsh), install this plugin by doing the following:
 
 1.  Go to your oh-my-zsh custom plugins directory -`cd ~/.oh-my-zsh/custom/plugins`
-2.  Clone the plugin `bash git clone https://github.com/luismayta/zsh-tmux`bash
+2.  Clone the plugin `bash git clone https://github.com/hadenlabs/zsh-tmux`bash
 3.  Edit your `.zshrc` and add `plugins=( ... zsh-tmux )` to your list of plugins
 4.  Open a new terminal and enjoy!
 
@@ -39,8 +39,8 @@ If you're using [oh-my-zsh](https://gitub.com/robbyrussell/oh-my-zsh), install t
 
 If you're using [Antigen](https://github.com/zsh-lovers/antigen), install this plugin by doing the following:
 
-1.  Add `antigen bundle luismayta/zsh-tmux` to your `.zshrc` where you're adding your other plugins.
-2.  Either open a new terminal to force zsh to load the new plugin, or run `antigen bundle luismayta/zsh-tmux` in a running zsh session.
+1.  Add `antigen bundle hadenlabs/zsh-tmux` to your `.zshrc` where you're adding your other plugins.
+2.  Either open a new terminal to force zsh to load the new plugin, or run `antigen bundle hadenlabs/zsh-tmux` in a running zsh session.
 3.  Enjoy!
 
 ### [antibody](https://github.com/getantibody/antibody) users
@@ -50,12 +50,12 @@ If you're using [Antibodyu](https://github.com/getantibody/antibody), install th
 1.  Add :
 
 ```{.sourceCode .bash}
-     antibody bundle luismayta/zsh-tmux
+     antibody bundle hadenlabs/zsh-tmux
 ```
 
 to your `.zshrc` where you're adding your other plugins.
 
-2.  Either open a new terminal to force zsh to load the new plugin, or run `antibody bundle luismayta/zsh-tmux` in a running zsh session.
+2.  Either open a new terminal to force zsh to load the new plugin, or run `antibody bundle hadenlabs/zsh-tmux` in a running zsh session.
 3.  Enjoy!
 
 ## Usage
@@ -80,13 +80,13 @@ Install tmux
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/luismayta/zsh-tmux/issues), send us an [email](email) or join our [Slack Community](slack).
+File a GitHub [issue](https://github.com/hadenlabs/zsh-tmux/issues), send us an [email](email) or join our [Slack Community](slack).
 
 ## Contributing
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/luismayta/zsh-tmux/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/hadenlabs/zsh-tmux/issues) to report any bugs or file feature requests.
 
 ### Development
 
@@ -118,4 +118,4 @@ The code and styles are licensed under the MIT license [See project license.](LI
 
 ## Don't forget to 🌟 Star 🌟 the repo if you like zsh-tmux
 
-[Your feedback is appreciated](https://github.com/luismayta/zsh-tmux/issues)
+[Your feedback is appreciated](https://github.com/hadenlabs/zsh-tmux/issues)
