@@ -1,7 +1,15 @@
 ## Functions
 
-zsh tmux includes a small utility `tmux` to fetch and install new packages.
+zsh tmux includes a small utility `tmux`.
 
-#### `bw::search`
+#### `tmux::post_install`
 
-Search key in tmux.
+Synchronizes and install configurations.
+
+#### `tmux::sync`
+
+Synchronizes the configurations that are in `conf/.tmux.conf`
+
+#### `tmux::install`
+
+Install tmux
