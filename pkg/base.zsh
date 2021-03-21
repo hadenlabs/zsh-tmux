@@ -6,6 +6,10 @@ function tmux::dependences {
     message_success "Installed dependences for ${TMUX_PACKAGE_NAME}"
 }
 
+function tmux::install {
+    tmux::internal::tmux::install
+}
+
 function tmux::post_install {
     message_info "Post Install ${TMUX_PACKAGE_NAME}"
     tmux::sync
