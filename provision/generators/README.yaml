@@ -17,19 +17,19 @@ email:
 license: 'MIT'
 
 # Canonical GitHub repo
-github_repo: luismayta/zsh-tmux
+github_repo: hadenlabs/zsh-tmux
 
 # Badges to display
 badges:
   - name: Lint
-    image: https://github.com/luismayta/zsh-tmux/actions/workflows/lint.yml/badge.svg?branch=develop
-    url: https://github.com/luismayta/zsh-tmux/actions
+    image: https://github.com/hadenlabs/zsh-tmux/actions/workflows/lint.yml/badge.svg?branch=develop
+    url: https://github.com/hadenlabs/zsh-tmux/actions
   - name: Issues
-    image: https://img.shields.io/github/issues/luismayta/zsh-tmux.svg
-    url: https://github.com/luismayta/zsh-tmux/issues
+    image: https://img.shields.io/github/issues/hadenlabs/zsh-tmux.svg
+    url: https://github.com/hadenlabs/zsh-tmux/issues
   - name: Latest Release
-    image: https://img.shields.io/github/release/luismayta/zsh-tmux.svg
-    url: https://github.com/luismayta/zsh-tmux/releases
+    image: https://img.shields.io/github/release/hadenlabs/zsh-tmux.svg
+    url: https://github.com/hadenlabs/zsh-tmux/releases
 
 # Short description of this project
 description: |-
