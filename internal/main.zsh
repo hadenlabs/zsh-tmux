@@ -18,7 +18,6 @@ function tmux::internal::main::factory {
 
 tmux::internal::main::factory
 
-if ! type -p rsync > /dev/null; then tmux::internal::rync::install; fi
-if ! type -p tmux > /dev/null; then tmux::internal::tmux::install; fi
-if ! type -p tmuxinator > /dev/null; then tmux::internal::tmuxinator::install; fi
+if ! core::exists rsync; then core::install rsync; fi
+if ! core::exists tmux; then tmux::internal::tmux::install; fi
 [ -e "${TMUX_TPM_PATH}" ] || tmux::internal::tpm::install
