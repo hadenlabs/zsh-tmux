@@ -14,22 +14,34 @@ email:
 #logo: docs/logo.png
 
 # License of this project
-license: 'MIT'
+license: 'LGPL-3.0'
 
 # Canonical GitHub repo
 github_repo: hadenlabs/zsh-tmux
 
 # Badges to display
 badges:
+  - name: GitHub tag (latest SemVer)
+    image: https://img.shields.io/github/v/tag/hadenlabs/zsh-tmux?label=latest&sort=semver
+    url: https://github.com/hadenlabs/zsh-tmux/releases
+  - name: Latest Release
+    image: https://img.shields.io/github/release/hadenlabs/zsh-tmux
+    url: https://github.com/hadenlabs/zsh-tmux/releases
   - name: Lint
-    image: https://github.com/hadenlabs/zsh-tmux/actions/workflows/lint.yml/badge.svg?branch=develop
+    image: https://img.shields.io/github/workflow/status/hadenlabs/zsh-tmux/lint-code
     url: https://github.com/hadenlabs/zsh-tmux/actions
   - name: Issues
-    image: https://img.shields.io/github/issues/hadenlabs/zsh-tmux.svg
+    image: https://img.shields.io/github/issues/hadenlabs/zsh-tmux
     url: https://github.com/hadenlabs/zsh-tmux/issues
-  - name: Latest Release
-    image: https://img.shields.io/github/release/hadenlabs/zsh-tmux.svg
-    url: https://github.com/hadenlabs/zsh-tmux/releases
+  - name: Conventional Commits
+    image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
+    url: https://conventionalcommits.org
+  - name: KeepAChangelog
+    image: https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735
+    url: https://keepachangelog.com
+  - name: Beacon
+    image: https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-tmux/readme
+    url: https://github.com/hadenlabs/zsh-tmux
 
 # Short description of this project
 description: |-
