@@ -76,6 +76,14 @@ Synchronizes the configurations that are in `conf/.tmux.conf`
 
 Install tmux
 
+#### `ftm`
+
+Create new tmux session, or switch to existing one.
+
+#### `ftmk`
+
+Delete tmux session.
+
 ## Help
 
 **Got a question?**
