@@ -14,6 +14,10 @@ Synchronizes the configurations that are in `conf/.tmux.conf`
 
 Install tmux
 
+#### `tx::project` `name_project`
+
+Run tmux session using tmuxinator template project
+
 #### `ftm`
 
 Create new tmux session, or switch to existing one.
