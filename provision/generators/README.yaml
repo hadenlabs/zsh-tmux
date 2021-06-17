@@ -21,9 +21,6 @@ github_repo: hadenlabs/zsh-tmux
 
 # Badges to display
 badges:
-  - name: GitHub tag (latest SemVer)
-    image: https://img.shields.io/github/v/tag/hadenlabs/zsh-tmux?label=latest&sort=semver
-    url: https://github.com/hadenlabs/zsh-tmux/releases
   - name: Latest Release
     image: https://img.shields.io/github/release/hadenlabs/zsh-tmux
     url: https://github.com/hadenlabs/zsh-tmux/releases
@@ -52,8 +49,6 @@ requirements: |-
   This is a list of plugins that need to be installed previously to enjoy all the goodies of this configuration:
 
   * [zsh-core](https://github.com/hadenlabs/zsh-core)
-
-usage: |
 
 installation:
   - 'docs/include/installation/oh-my-zsh.md'
