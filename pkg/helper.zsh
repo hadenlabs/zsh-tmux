@@ -4,10 +4,15 @@
 # edittmux edit settings for tmux
 function edittmux {
     if [ -z "${EDITOR}" ]; then
-        message_warning "it's neccesary the var EDITOR"
+        message_warning "it's necessary the var EDITOR"
         return
     fi
     "${EDITOR}" "${TMUX_FILE_SETTINGS}"
+}
+
+# tx::project [name project] - create new tmux session with project template.
+function tx::project {
+    tmuxinator start project "${@}"
 }
 
 # ftm [SESSION_NAME | FUZZY PATTERN] - create new tmux session, or switch to existing one.
