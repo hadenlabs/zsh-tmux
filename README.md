@@ -12,9 +12,9 @@
 
   -->
 
-# zsh-tmux
+[![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-tmux)](https://github.com/hadenlabs/zsh-tmux/releases) [![Lint](https://img.shields.io/github/workflow/status/hadenlabs/zsh-tmux/lint-code)](https://github.com/hadenlabs/zsh-tmux/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-tmux)](https://github.com/hadenlabs/zsh-tmux/issues) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com) [![Beacon](https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-tmux/readme)](https://github.com/hadenlabs/zsh-tmux)
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hadenlabs/zsh-tmux?label=latest&sort=semver)](https://github.com/hadenlabs/zsh-tmux/releases) [![Latest Release](https://img.shields.io/github/release/hadenlabs/zsh-tmux)](https://github.com/hadenlabs/zsh-tmux/releases) [![Lint](https://img.shields.io/github/workflow/status/hadenlabs/zsh-tmux/lint-code)](https://github.com/hadenlabs/zsh-tmux/actions) [![Issues](https://img.shields.io/github/issues/hadenlabs/zsh-tmux)](https://github.com/hadenlabs/zsh-tmux/issues) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org) [![KeepAChangelog](https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735)](https://keepachangelog.com) [![Beacon](https://ga-beacon.appspot.com/G-MZEK48EGE8/zsh-tmux/readme)](https://github.com/hadenlabs/zsh-tmux)
+# zsh-tmux
 
 zsh-tmux plugin for zsh.
 
@@ -45,7 +45,7 @@ If you're using [Antigen](https://github.com/zsh-users/antigen), install this pl
 
 ### [antibody](https://github.com/getantibody/antibody) users
 
-If you're using [Antibodyu](https://github.com/getantibody/antibody), install this plugin by doing the following:
+If you're using [Antibody](https://github.com/getantibody/antibody), install this plugin by doing the following:
 
 1.  Add :
 
@@ -57,8 +57,6 @@ to your `.zshrc` where you're adding your other plugins.
 
 2.  Either open a new terminal to force zsh to load the new plugin, or run `antibody bundle hadenlabs/zsh-tmux` in a running zsh session.
 3.  Enjoy!
-
-## Usage
 
 ## Functions
 
@@ -75,6 +73,10 @@ Synchronizes the configurations that are in `conf/.tmux.conf`
 #### `tmux::install`
 
 Install tmux
+
+#### `tx::project` `name_project`
+
+Run tmux session using tmuxinator template project
 
 #### `ftm`
 
