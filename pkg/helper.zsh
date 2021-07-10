@@ -12,7 +12,12 @@ function edittmux {
 
 # tx::project [name project] - create new tmux session with project template.
 function tx::project {
-    tmuxinator start project "${@}"
+    local name_project
+    name_project="${1}"
+    if [ -z "${name_project}" ]; then
+        name_project=$(basename "$(pwd)")
+    fi
+    tmuxinator start project "${name_project}"
 }
 
 # ftm [SESSION_NAME | FUZZY PATTERN] - create new tmux session, or switch to existing one.
