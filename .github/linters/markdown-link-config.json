@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://github.com/hadenlabs/zsh-git",
+  "baseUrl": "https://github.com/hadenlabs/zsh-tmux",
   "ignorePatterns": [
     {
       "pattern": "^https://hadenlabs.com"
