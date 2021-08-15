@@ -1,3 +1,6 @@
+default_stages:
+  - commit
+
 repos:
   - repo: https://github.com/codespell-project/codespell
     rev: v2.1.0
@@ -40,14 +43,11 @@ repos:
       - id: check-docstring-first
       - id: requirements-txt-fixer
       - id: check-symlinks
-      - id: name-tests-test
-        args:
-          - --django
       - id: file-contents-sorter
       - id: fix-encoding-pragma
       - id: sort-simple-yaml
   - repo: https://github.com/hadenlabs/pre-commit-hooks
-    rev: 1298041a5a096f910b544237c5df67747af2688f
+    rev: 32eda4af34084f4e03d83a75b0ae3d2b91b45246
     hooks:
       - id: do-not-commit
       - id: markdown-link-check
