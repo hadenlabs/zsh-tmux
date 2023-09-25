@@ -6,4 +6,4 @@ ignored:
   - vendor/
   - node_modules/
 custom_todos:
-  - '@fix'
+  - "@fix"

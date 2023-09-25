@@ -5,7 +5,7 @@ If you're using [Antibody](https://github.com/getantibody/antibody), install thi
 1.  Add :
 
 ```{.sourceCode .bash}
-     antibody bundle hadenlabs/zsh-tmux
+antibody bundle hadenlabs/zsh-tmux
 ```
 
 to your `.zshrc` where you're adding your other plugins.
