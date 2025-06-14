@@ -64,12 +64,6 @@ to your `.zshrc` where you're adding your other plugins.
 
 # How to use this project
 
-## Replace name project to New Project
-
-```bash
-agr 'zsh-tmux' 'new-project'
-```
-
 ## Examples
 
 <!-- Space: Projects -->
@@ -79,7 +73,13 @@ agr 'zsh-tmux' 'new-project'
 <!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
-### Common
+## Common
+
+### Install Dependencies
+
+```bash
+task setup
+```
 
 ## Functions
 
@@ -136,7 +136,7 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 
 ## Copyright
 
-Copyright © 2018-2023 [Hadenlabs](https://hadenlabs.com)
+Copyright © 2018-2025 [Hadenlabs](https://hadenlabs.com)
 
 ## Trademarks
 
