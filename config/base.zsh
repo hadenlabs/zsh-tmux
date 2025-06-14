@@ -7,4 +7,8 @@ export TMUX_MESSAGE_RVM="Please install rvm or use antibody bundle hadenlabs/zsh
 export TMUX_PACKAGE_NAME=tmux
 export TMUX_TPM_PATH="${HOME}"/.tmux/plugins/tpm
 export HOME_CONFIG_PATH="${HOME}"/.config/
+
+export TMUXINATOR_TEMPLATE_DIR="${HOME_CONFIG_PATH}/.tmuxinator/templates"
+export TMUXINATOR_DEFAULT_TEMPLATE="default"
+
 [ -z "${EDITOR}" ] && export EDITOR="vim"

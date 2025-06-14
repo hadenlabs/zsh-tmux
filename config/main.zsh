@@ -17,3 +17,4 @@ function tmux::config::main::factory {
 }
 
 tmux::config::main::factory
+if ! core::exists fzf; then core::install fzf; fi
