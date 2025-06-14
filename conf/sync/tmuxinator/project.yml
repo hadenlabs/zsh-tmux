@@ -33,20 +33,27 @@ root: ./
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: docker
+startup_window: app
 
 windows:
-  - python:
+  - k8s:
       layout: main-vertical
       panes:
-        - ipython:
+        - app:
+        - k8s:
+        - logs:
+        - cmd:
   - cloud:
       layout: main-vertical
       panes:
         - cloud:
         - databases:
-  - docker:
+        - logs:
+        - cmd:
+  - app:
       layout: main-vertical
       panes:
-        - webserver:
+        - api:
         - databases:
+        - logs:
+        - cmd:
