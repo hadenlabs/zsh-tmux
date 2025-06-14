@@ -18,5 +18,5 @@ function tmux::post_install {
 
 function tmux::sync {
     rsync -avzh --progress "${ZSH_TMUX_PATH}/conf/" "${HOME}/"
-    rsync -avzh --progress "${ZSH_TMUX_PATH}/conf/sync/tmuxinator/" "${TMUXINATOR_CONFIG_PATH}/"
+    rsync -avzh --progress "${ZSH_TMUX_PATH}/sync/" "${HOME_CONFIG_PATH}/"
 }

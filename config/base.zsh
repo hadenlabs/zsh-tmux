@@ -6,5 +6,5 @@ export TMUX_MESSAGE_BREW="Please install brew or use antibody bundle hadenlabs/z
 export TMUX_MESSAGE_RVM="Please install rvm or use antibody bundle hadenlabs/zsh-rvm branch:develop"
 export TMUX_PACKAGE_NAME=tmux
 export TMUX_TPM_PATH="${HOME}"/.tmux/plugins/tpm
-export TMUXINATOR_CONFIG_PATH="${HOME}"/.config/tmuxinator
+export HOME_CONFIG_PATH="${HOME}"/.config/
 [ -z "${EDITOR}" ] && export EDITOR="vim"
