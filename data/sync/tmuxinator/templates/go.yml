@@ -43,4 +43,3 @@ windows:
         - app:
         - opencode:
         - shell:
-        - cmd:

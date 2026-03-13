@@ -40,7 +40,5 @@ windows:
       layout: main-horizontal
       panes:
         - editor:
-        - app:
         - opencode:
         - shell:
-        - cmd:
