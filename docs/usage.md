@@ -22,6 +22,6 @@ When the plugin is loaded, it ensures the required tools are available and then 
 ## Interactive helpers
 
 - `edittmux` opens the generated tmux config file in `${EDITOR}`
-- `tx::project` lets you select a tmuxinator template with `fzf`
+- `tx::project` lets you select a tmuxinator template with `fzf` and starts in a single `workspace` window with panes for editing, app work, `opencode`, shell, and commands
 - `ftm` switches to or creates tmux sessions
 - `ftmk` deletes tmux sessions

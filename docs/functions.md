@@ -26,7 +26,7 @@ Opens `${TMUX_FILE_SETTINGS}` in the configured `${EDITOR}`.
 
 #### `tx::project` `name_project`
 
-Selects a tmuxinator template with `fzf` and starts a tmuxinator project. If no name is passed, it uses the current directory name.
+Selects a tmuxinator template with `fzf` and starts a tmuxinator project in a single optimized workspace window that includes an `opencode` pane. If no name is passed, it uses the current directory name.
 
 #### `tx`
 
