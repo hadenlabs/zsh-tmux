@@ -33,27 +33,14 @@ root: ./
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-startup_window: app
+startup_window: workspace
 
 windows:
-  - k8s:
-      layout: main-vertical
+  - workspace:
+      layout: main-horizontal
       panes:
+        - editor:
         - app:
-        - k8s:
-        - logs:
-        - cmd:
-  - cloud:
-      layout: main-vertical
-      panes:
-        - cloud:
-        - databases:
-        - logs:
-        - cmd:
-  - app:
-      layout: main-vertical
-      panes:
-        - api:
-        - databases:
-        - logs:
+        - opencode:
+        - shell:
         - cmd:
