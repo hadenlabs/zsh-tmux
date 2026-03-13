@@ -39,7 +39,7 @@ Your commit messages should serve these 3 important purposes:
 - To provide the least amount of necessary documentation
 - To help the future maintainers.
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) to make `git log`{.interpreted-text role="command"} a little easier to follow. We use commitlint enforcing conventional commits (See more [here](https://github.com/conventional-changelog/commitlint))
+Follow the repository commit format enforced by commitlint: `<type> <emoji> (<scope>): <subject>`. The repository currently accepts scopes `core`, `accounts`, and `ci`, with a maximum subject length of 100 characters.
 
 **chore**: something just needs to happen, e.g. versioning
 
@@ -57,13 +57,13 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) to 
 
 Examples commit messages:
 
-- chore: IN-698 implement model devices
-- docs: IN-698 implement configuration settings
-- feat: IN-698 create lambda function
-- fix: IN-698 retry upload on failure
-- refactor: IN-698 extract duplicate code
-- style: IN-698 format files python
-- test: IN-698 coverage around add permissions
+- chore 🧹 (core): refresh release metadata
+- docs 📚 (core): update configuration paths
+- feat ✨ (core): add tmux workflow helpers
+- fix 🐛 (core): correct sync destination
+- refactor 🎨 (core): simplify tmux helper flow
+- style 💄 (core): normalize shell formatting
+- test 🧪 (core): cover sync commands
 
 **Keep it short and simple!**
 
@@ -73,7 +73,7 @@ See [Github Flow](./contribute/github-flow.md).
 
 ### Documentation
 
-Documentation is a part of the zsh-tmux code base. You can find the documentation files in the `doc/` subdirectory of the [main repository](https://github.com/hadenlabs/zsh-tmux). This means that the contribution process is the same for both the source code and documentation.
+Documentation is part of the zsh-tmux code base. You can find the documentation files in the `docs/` directory of the [main repository](https://github.com/hadenlabs/zsh-tmux). `README.md` is generated from `provision/generators/README.yaml`, `provision/templates/README.tpl.md`, and the included files under `docs/`.
 
 ### Testing
 

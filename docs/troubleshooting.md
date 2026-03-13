@@ -2,10 +2,16 @@
 
 ## Environment
 
-### Wrong pre-commit with poetry
+### Validation environment issues
 
-Execute the next:
+This repository uses `uv` and `task`, not poetry. If validation or formatting commands fail because the environment is incomplete, run:
 
 ```{.bash}
 task environment
+```
+
+Then rerun:
+
+```{.bash}
+task validate
 ```

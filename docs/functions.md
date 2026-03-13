@@ -2,26 +2,40 @@
 
 zsh tmux includes a small utility `tmux`.
 
+### Public functions and aliases
+
+#### `tmux::dependences`
+
+Checks and installs the dependencies required by the plugin.
+
 #### `tmux::post_install`
 
-Synchronizes and install configurations.
+Runs the post-install sync flow for tmux and tmuxinator assets.
 
 #### `tmux::sync`
 
-Synchronizes the configurations that are in `conf/.tmux.conf`
+Synchronizes `data/conf/.tmux.conf` into `${HOME}/` and `data/sync/` into `${HOME_CONFIG_PATH}/`.
 
 #### `tmux::install`
 
-Install tmux
+Installs tmux using the platform-specific implementation.
+
+#### `edittmux`
+
+Opens `${TMUX_FILE_SETTINGS}` in the configured `${EDITOR}`.
 
 #### `tx::project` `name_project`
 
-Run tmux session using tmuxinator template project
+Selects a tmuxinator template with `fzf` and starts a tmuxinator project. If no name is passed, it uses the current directory name.
+
+#### `tx`
+
+Alias for `tmuxinator` when the command is available.
 
 #### `ftm`
 
-Create new tmux session, or switch to existing one.
+Creates a new tmux session or switches to an existing one.
 
 #### `ftmk`
 
-Delete tmux session.
+Deletes a tmux session.

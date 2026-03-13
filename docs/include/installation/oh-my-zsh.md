@@ -1,7 +1,7 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshAI -->
-<!-- Title: Installation Oh-My-Zsh ZshAI -->
-<!-- Label: ZshAI -->
+<!-- Parent: ZshTmux -->
+<!-- Title: Installation Oh-My-Zsh ZshTmux -->
+<!-- Label: ZshTmux -->
 <!-- Label: Project -->
 <!-- Label: Installation -->
 <!-- Label: Oh-My-Zsh -->
@@ -12,7 +12,7 @@
 
 If you're using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), install this plugin by doing the following:
 
-1. Go to your oh-my-zsh custom plugins directory -`cd ~/.oh-my-zsh/custom/plugins`
-2. Clone the plugin `bash git clone https://github.com/hadenlabs/zsh-ai`bash
-3. Edit your `.zshrc` and add `plugins=( ... zsh-ai )` to your list of plugins
+1. Go to your oh-my-zsh custom plugins directory: `cd ~/.oh-my-zsh/custom/plugins`
+2. Clone the plugin: `git clone https://github.com/hadenlabs/zsh-tmux`
+3. Edit your `.zshrc` and add `plugins=( ... zsh-tmux )` to your list of plugins
 4. Open a new terminal and enjoy!
