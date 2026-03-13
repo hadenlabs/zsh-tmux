@@ -1,20 +1,20 @@
 ---
 name: update-pr
-description: Push branch commits and update the existing PR body safely (prefer REST API)
-license: MIT
+description: Push branch commits and update the existing MR body safely (prefer REST API)
+license: Proprietary
 ---
 
 ## What I do
 
 - Validate changes locally.
 - Push the current branch (handles unset upstream).
-- Detect the PR for the current branch.
-- Regenerate the PR body from `.github/PULL_REQUEST_TEMPLATE.md` using the current `main...HEAD` diff.
-- Update the PR body using GitHub REST API via `gh api` (fallback to `gh pr edit`).
+- Detect the MR for the current branch.
+- Regenerate the MR body from `.gitlab/merge_request_templates/MERGE_REQUEST_TEMPLATE.md` using the current `main...HEAD` diff.
+- Update the MR body using `glab mr update` (fallback to `glab api`).
 
 ## When to use me
 
-Use this when you already have a PR open and need to refresh its description to match the latest branch changes.
+Use this when you already have an MR open and need to refresh its description to match the latest branch changes.
 
 ## Process
 
@@ -26,24 +26,21 @@ Use this when you already have a PR open and need to refresh its description to 
 3. Push current branch:
    - If upstream is not set: `git push -u origin HEAD`
    - Otherwise: `git push`
-4. Detect PR:
-   - Prefer: `gh pr view --json number,url --jq '.number, .url'`
-   - Fallback: `gh pr list --head "$(git rev-parse --abbrev-ref HEAD)" --json number,url --jq '.[0].number, .[0].url'`
-5. Generate updated PR body (based on `.github/PULL_REQUEST_TEMPLATE.md`) and fill:
+4. Detect MR:
+   - Prefer: `glab mr view "$(git rev-parse --abbrev-ref HEAD)" --output json | jq '{iid: .iid, url: .web_url}'`
+   - Fallback: `glab mr list --source-branch "$(git rev-parse --abbrev-ref HEAD)" --output json | jq '.[0] | {iid: .iid, url: .web_url}'`
+5. Generate updated MR body (based on `.gitlab/merge_request_templates/MERGE_REQUEST_TEMPLATE.md`) and fill:
    - Proposed changes: bullets derived from `main...HEAD` diff (group by area; reference key paths)
    - Testing: include `task validate`
    - Migration steps (if any)
    - Screenshots placeholders
    - Types of changes: mark what applies
    - Checklist: mark what is true
-6. Update PR body:
-   - Prefer (REST, avoids GraphQL classic-projects failures):
+6. Update MR body:
+   - Prefer:
 
 ```bash
-owner="$(gh repo view --json owner --jq .owner.login)"
-repo="$(gh repo view --json name --jq .name)"
-gh api --method PATCH "repos/${owner}/${repo}/pulls/<PR_NUMBER>" \
-  -f body="$(cat <<'EOF'
+glab mr update <MR_IID> --description "$(cat <<'EOF'
 <filled template body>
 EOF
 )"
@@ -52,7 +49,10 @@ EOF
 - Fallback:
 
 ```bash
-gh pr edit <PR_NUMBER> --body "$(cat <<'EOF'
+project="$(glab repo view --output json | jq -r '.path_with_namespace')"
+glab api "projects/$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "${project}")/merge_requests/<MR_IID>" \
+  --method PUT \
+  --raw-field description="$(cat <<'EOF'
 <filled template body>
 EOF
 )"

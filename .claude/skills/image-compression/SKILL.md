@@ -2,7 +2,7 @@
 name: image-compression
 description: Reduce image file size using the MCP image-compression tool. If no path is provided, ask the user for the file.
 agent: OpenCode
-license: MIT
+license: Proprietary
 ---
 
 # Image Compression Skill

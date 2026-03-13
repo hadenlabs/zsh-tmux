@@ -1,14 +1,14 @@
 ---
 name: git-release
 description: Create consistent releases and changelogs
-license: MIT
+license: Proprietary
 ---
 
 ## What I do
 
 - Draft release notes from merged PRs
 - Propose a version bump
-- Provide a copy-pasteable `gh release create` command
+- Provide a copy-pasteable `glab release create` command
 
 ## When to use me
 
@@ -23,9 +23,9 @@ Use this when preparing a tagged release. Ask clarifying questions if versioning
 5. Generate changelog entry
 6. Output the release command
 
-## PR template (when creating a PR)
+## MR template (when creating an MR)
 
-Use `.github/PULL_REQUEST_TEMPLATE.md` as the base for the PR body and fill it with the specifics of the change.
+Use `.gitlab/merge_request_templates/MERGE_REQUEST_TEMPLATE.md` as the base for the MR body and fill it with the specifics of the change.
 
 Prefer to include:
 
@@ -36,9 +36,9 @@ Prefer to include:
 Example (copy/paste):
 
 ```bash
-gh pr create --base main --head "${BRANCH}" \
+glab mr create --target-branch main --source-branch "${BRANCH}" \
   --title "<title>" \
-  --body "$(cat <<'EOF'
+  --description "$(cat <<'EOF'
 ## Proposed changes
 
 <describe the big picture and link issues>
@@ -72,4 +72,10 @@ Screenshots:
 <optional>
 EOF
 )"
+```
+
+Example release command:
+
+```bash
+glab release create <tag> --notes-file <notes-file>
 ```

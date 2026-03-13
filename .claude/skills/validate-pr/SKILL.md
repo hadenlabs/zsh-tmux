@@ -1,79 +1,85 @@
 ---
 name: validate-pr
-description: Find vulnerabilities or errors in a pull request (checks, scans, merge blockers) and propose fixes.
-license: MIT
+description: Find vulnerabilities or errors in a merge request (checks, scans, merge blockers) and propose fixes.
+license: Proprietary
 ---
 
 ## What I do
 
-- Ask which PR to validate (number or URL).
-- List PRs assigned to you so you can pick quickly.
+- Ask which MR to validate (IID or URL).
+- List MRs assigned to you so you can pick quickly.
 - Inspect CI/check failures, required checks, and merge blockers.
-- Look for security signals when available (Code Scanning / dependency updates).
-- Produce an actionable checklist to get the PR merge-ready.
+- Look for security signals when available (vulnerability findings / dependency updates).
+- Produce an actionable checklist to get the MR merge-ready.
 
 ## First question (required)
 
-1. List PRs assigned to the current user:
+1. List MRs assigned to the current user:
 
 ```bash
-gh pr list --assignee @me --state open --json number,title,url,headRefName,baseRefName,updatedAt --jq '.[] | "#\(.number)\t\(.headRefName) → \(.baseRefName)\t\(.updatedAt)\t\(.title)\t\(.url)"'
+glab mr list --assignee @me --state opened --output json | jq -r '.[] | "!\(.iid)\t\(.source_branch) -> \(.target_branch)\t\(.updated_at)\t\(.title)\t\(.web_url)"'
 ```
 
-2. Ask: "Which PR do you want to validate? (number or URL)"
+2. Ask: "Which MR do you want to validate? (IID or URL)"
 
 Notes:
 
 - If the list is empty, fallback to:
 
 ```bash
-gh pr list --author @me --state open --json number,title,url,headRefName,baseRefName,updatedAt --jq '.[] | "#\(.number)\t\(.headRefName) → \(.baseRefName)\t\(.updatedAt)\t\(.title)\t\(.url)"'
+glab mr list --author @me --state opened --output json | jq -r '.[] | "!\(.iid)\t\(.source_branch) -> \(.target_branch)\t\(.updated_at)\t\(.title)\t\(.web_url)"'
 ```
 
-## Validation workflow (for PR <N>)
+## Validation workflow (for MR <IID>)
 
-### 1) Quick PR status
+### 1) Quick MR status
 
 ```bash
-gh pr view <N> --json number,url,title,state,isDraft,mergeable,baseRefName,headRefName,author,reviewDecision,labels,assignees
+glab mr view <IID> --output json
 ```
 
 ### 2) Checks / CI failures
 
 ```bash
-gh pr checks <N>
+branch="$(glab mr view <IID> --output json | jq -r '.source_branch')"
+glab ci status --branch "${branch}"
 ```
 
 If there are failing runs, inspect logs:
 
 ```bash
-branch="$(gh pr view <N> --json headRefName --jq .headRefName)"
-gh run list --branch "${branch}" --limit 10
+glab ci list --branch "${branch}"
 ```
 
-Pick the failing run id and view:
+Pick the failing pipeline/job and inspect it. For a pipeline overview:
 
 ```bash
-gh run view <RUN_ID> --log-failed
+glab ci view -b "${branch}"
+```
+
+For a failed job log:
+
+```bash
+glab ci trace <JOB_ID>
 ```
 
 ### 3) Files changed (to scope the investigation)
 
 ```bash
-gh pr diff <N> --stat
+glab mr diff <IID>
+git diff --stat main...HEAD
 ```
 
 ### 4) Security signals (best-effort)
 
-Code scanning alerts for the PR merge ref (may require permissions; can be empty):
+Vulnerability findings in GitLab may require Ultimate-tier features and API permissions. Best-effort example:
 
 ```bash
-owner="$(gh repo view --json owner --jq .owner.login)"
-repo="$(gh repo view --json name --jq .name)"
-gh api "repos/${owner}/${repo}/code-scanning/alerts?ref=refs/pull/<N>/merge&state=open" --jq '.[] | "\(.rule.id)\t\(.rule.severity)\t\(.state)\t\(.html_url)"'
+project="$(glab repo view --output json | jq -r '.path_with_namespace')"
+glab api "projects/$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "${project}")/vulnerability_findings"
 ```
 
-If the API call returns 403/404, report that security alerts are not accessible with current permissions and continue with checks/logs.
+If the API call returns 403/404, report that vulnerability findings are not accessible with current permissions or project tier and continue with checks/logs.
 
 ### 5) Output
 
@@ -81,5 +87,5 @@ Provide:
 
 - The failing checks (name + link) and the root cause from logs.
 - Any merge blockers (conflicts, required reviews, missing approvals).
-- Any open code-scanning alerts (if accessible) with severity.
+- Any open vulnerability findings (if accessible) with severity.
 - Concrete next steps (commands to run locally and files to change).

@@ -1,7 +1,7 @@
 ---
 name: release
 description: Run a release bump (major/minor/patch) and generate next changelog from the updated pyproject.toml version.
-license: MIT
+license: Proprietary
 ---
 
 # Release Skill

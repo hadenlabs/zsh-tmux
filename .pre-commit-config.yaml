@@ -12,6 +12,7 @@ exclude: >
     .+\.node_modules\/.*$|
     .+\.external_modules.*$|
     .+\.terraform.*$|
+    pnpm-lock.yaml|
     .+\.venv.*$|
     .+\.lock$|
     .+\.mdx$|
@@ -27,6 +28,8 @@ repos:
         exclude: >
           (?x)^(
           AGENTS.md|
+          .claude/skills/.*/SKILL\.md$|
+          skills/.*/SKILL\.md$|
           app/components/sections\/.*$|
           app/data\/.*$|
           app/ia/datasets\/.*$|
