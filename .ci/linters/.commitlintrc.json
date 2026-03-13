@@ -1,3 +1,36 @@
 {
-  "extends": ["@hadenlabs/commitlint-config"]
+  "extends": ["@hadenlabs/commitlint-config"],
+  "parserPreset": {
+    "parserOpts": {
+      "headerPattern": "^(\\w+)\\s+(\\S+)\\s+\\(([^)]+)\\):\\s(.+)$",
+      "headerCorrespondence": ["type", "emoji", "scope", "subject"]
+    }
+  },
+  "rules": {
+    "type-enum": [
+      2,
+      "always",
+      [
+        "build",
+        "chore",
+        "ci",
+        "docs",
+        "feat",
+        "fix",
+        "hotfix",
+        "perf",
+        "refactor",
+        "revert",
+        "style",
+        "test",
+        "sample",
+        "package",
+        "wip",
+        "deprecate",
+        "prompt"
+      ]
+    ],
+    "scope-enum": [2, "always", ["core", "accounts", "ci"]],
+    "subject-max-length": [2, "always", 100]
+  }
 }

@@ -1,8 +1,18 @@
-### [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) users
+<!-- Space: Projects -->
+<!-- Parent: ZshAI -->
+<!-- Title: Installation Oh-My-Zsh ZshAI -->
+<!-- Label: ZshAI -->
+<!-- Label: Project -->
+<!-- Label: Installation -->
+<!-- Label: Oh-My-Zsh -->
+<!-- Include: docs/disclaimer.md -->
+<!-- Include: ac:toc -->
 
-If you're using [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), install this plugin by doing the following:
+### [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) users
 
-1.  Go to your oh-my-zsh custom plugins directory -`cd ~/.oh-my-zsh/custom/plugins`
-2.  Clone the plugin `bash git clone https://github.com/hadenlabs/zsh-tmux`bash
-3.  Edit your `.zshrc` and add `plugins=( ... zsh-tmux )` to your list of plugins
-4.  Open a new terminal and enjoy!
+If you're using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), install this plugin by doing the following:
+
+1. Go to your oh-my-zsh custom plugins directory -`cd ~/.oh-my-zsh/custom/plugins`
+2. Clone the plugin `bash git clone https://github.com/hadenlabs/zsh-ai`bash
+3. Edit your `.zshrc` and add `plugins=( ... zsh-ai )` to your list of plugins
+4. Open a new terminal and enjoy!

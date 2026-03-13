@@ -30,6 +30,8 @@ includes:
     taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/refs/heads/main/src/docker/Taskfile.yml"
   version:
     taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/refs/heads/main/src/version/Taskfile.yml"
+  release:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/refs/heads/main/src/release/Taskfile.yml"
   plantuml:
     taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/refs/heads/main/src/plantuml/Taskfile.yml"
   prettier:
@@ -74,13 +76,17 @@ vars:
   DOCKER_PLATFORM: linux/amd64
   REVIEWERS: luismayta
   PYTHON_VERSION: 3.11.5
-  NODE_VERSION: v20.9.0
+  NODE_VERSION: v24.11.1
   GRADLE_VERSION: 8.4.0
-  GOLANG_VERSION: 1.22.4
+  GOLANG_VERSION: 1.24.11
   GIT_IGNORES: python,node,go,zsh,sonar,java,maven,intellij+all,terraform,linux
+  COMMIT: $(git rev-parse HEAD)
+  RELEASE_DIR: ./release
+  DATE: $(date +%s)
   GOLANGCI_VERSION: 1.42.0
   TERRAFORM_VERSION: 1.11.4
   README_FILE: README.md
+  # NOTE: Agent workflow conventions live in `infobot.toml`.
   GIT_IGNORES_CUSTOM: |
     bin
     .project
@@ -88,12 +94,14 @@ vars:
     .secrets
     public
     TMP_CHANGELOG.md
+    .task
     .terraform.lock.hcl
     build
     .task
     *.lock
     *.lock.hcl
     .cq/
+    .tmp
     *.lock
     *.zip
     *.iml
@@ -101,6 +109,8 @@ vars:
     .pmd
     vendor
     !uv.lock
+    /.react-router/
+    .dev.vars
 
 tasks:
   default:
@@ -133,7 +143,6 @@ tasks:
       - docs:check
 
   readme:
-    run: once
     desc: Generate Readme
     silent: true
     cmds:
@@ -145,7 +154,6 @@ tasks:
       - task: prettier
 
   prettier:
-    run: once
     desc: Execute prettier files
     cmds:
       - task: prettier:all
@@ -182,6 +190,11 @@ tasks:
     cmds:
       - task: go:mockery
       - task: go:generate
+
+  validate:
+    desc: "Run validate on all files"
+    cmds:
+      - uv run pre-commit run --all-files
 
   help:
     cmds:

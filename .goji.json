@@ -100,6 +100,12 @@
       "code": ":ci:",
       "description": "Add or update Continuous Integration.",
       "name": "ci"
+    },
+    {
+      "emoji": "📝",
+      "code": ":memo:",
+      "description": "Add or update prompts (PDD/Fabric).",
+      "name": "prompt"
     }
   ]
 }

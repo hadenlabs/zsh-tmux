@@ -1,0 +1,13 @@
+{
+  "name": "Data & Analysis",
+  "description": "Data analysis and research specialists",
+  "icon": "📊",
+  "agents": {
+    "data-analyst": {
+      "description": "Expert in data analysis, visualization, and statistical insights",
+      "commonSubagents": [],
+      "commonTools": [],
+      "commonContext": ["core/essential-patterns"]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "generated_by": "zsh-ai repo scaffolding",
+  "agents": {
+    "core/openagent": {
+      "path": ".opencode/agent/core/openagent.md",
+      "mode": "primary"
+    },
+    "core/opencoder": {
+      "path": ".opencode/agent/core/opencoder.md",
+      "mode": "primary"
+    },
+    "meta/repo-manager": {
+      "path": ".opencode/agent/meta/repo-manager.md",
+      "mode": "primary"
+    },
+    "meta/system-builder": {
+      "path": ".opencode/agent/meta/system-builder.md",
+      "mode": "primary"
+    },
+    "data/data-analyst": {
+      "path": ".opencode/agent/data/data-analyst.md",
+      "mode": "primary"
+    },
+    "content/copywriter": {
+      "path": ".opencode/agent/content/copywriter.md",
+      "mode": "primary"
+    },
+    "content/technical-writer": {
+      "path": ".opencode/agent/content/technical-writer.md",
+      "mode": "primary"
+    },
+    "testing/eval-runner": {
+      "path": ".opencode/agent/eval-runner.md",
+      "mode": "subagent"
+    },
+    "subagents/code/coder-agent": {
+      "path": ".opencode/agent/subagents/code/coder-agent.md",
+      "mode": "subagent"
+    },
+    "subagents/code/build-agent": {
+      "path": ".opencode/agent/subagents/code/build-agent.md",
+      "mode": "subagent"
+    },
+    "subagents/code/reviewer": {
+      "path": ".opencode/agent/subagents/code/reviewer.md",
+      "mode": "subagent"
+    },
+    "subagents/code/test-engineer": {
+      "path": ".opencode/agent/subagents/code/test-engineer.md",
+      "mode": "subagent"
+    },
+    "subagents/core/contextscout": {
+      "path": ".opencode/agent/subagents/core/contextscout.md",
+      "mode": "subagent"
+    },
+    "subagents/core/externalscout": {
+      "path": ".opencode/agent/subagents/core/externalscout.md",
+      "mode": "subagent"
+    },
+    "subagents/core/documentation": {
+      "path": ".opencode/agent/subagents/core/documentation.md",
+      "mode": "subagent"
+    },
+    "subagents/utils/image-specialist": {
+      "path": ".opencode/agent/subagents/utils/image-specialist.md",
+      "mode": "subagent"
+    }
+  }
+}
