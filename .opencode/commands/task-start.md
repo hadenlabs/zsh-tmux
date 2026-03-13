@@ -13,8 +13,8 @@ agent: OpenCoder
 4. Execute the next ready subtask through OpenCode:
    - Run `bash .infobot/skills/task-management/router.sh execute <feature>`
 5. The router must:
-    - resolve the next ready subtask,
-    - mark it as `in_progress`, and
+   - resolve the next ready subtask,
+   - mark it as `in_progress`, and
    - invoke `opencode run` through a primary runtime agent while passing the subtask's `suggested_agent` as the preferred executor in the prompt.
 6. Prompt selection rules:
    - If the subtask has a `prompt`, use it as the primary execution prompt.

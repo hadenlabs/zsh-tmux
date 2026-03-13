@@ -282,9 +282,7 @@ def _resolve_opencode_bin() -> str:
 def _subtask_prompt(feature: str, seq: str, task_obj, subtask_obj) -> str:
     preferred_agent = str(subtask_obj.get("suggested_agent") or "CoderAgent")
     runtime_model = str(
-        subtask_obj.get("opencode_model")
-        or _resolve_agent_model(preferred_agent)
-        or ""
+        subtask_obj.get("opencode_model") or _resolve_agent_model(preferred_agent) or ""
     ).strip()
     lines = [
         "Execute the following repository task using the task-manager workflow.",
@@ -328,7 +326,7 @@ def _subtask_prompt(feature: str, seq: str, task_obj, subtask_obj) -> str:
             "- Implement the subtask in this repository using the assigned agent.",
             "- Verify the deliverables and acceptance criteria.",
             (
-                f'- When finished, mark the subtask complete with '
+                f"- When finished, mark the subtask complete with "
                 f'`bash .infobot/skills/task-management/router.sh complete {feature} {seq} "<summary>"`.'
             ),
             "- If blocked, explain the blocker and leave the subtask in_progress.",
@@ -353,9 +351,7 @@ def _run_opencode_for_subtask(feature: str, seq: str, task_obj, subtask_obj) -> 
     suggested_agent = str(subtask_obj.get("suggested_agent") or "CoderAgent")
     runtime_agent = str(subtask_obj.get("opencode_agent") or "OpenAgent")
     runtime_model = str(
-        subtask_obj.get("opencode_model")
-        or _resolve_agent_model(suggested_agent)
-        or ""
+        subtask_obj.get("opencode_model") or _resolve_agent_model(suggested_agent) or ""
     ).strip()
     opencode_bin = _resolve_opencode_bin()
     root_dir = _root_dir()
@@ -413,7 +409,9 @@ def cmd_execute(feature: str, seq: str | None = None, agent_id: str | None = Non
             _die(f"no ready subtask found for feature: {feature}")
 
         resolved_seq = (
-            str(resolved_seq).zfill(2) if str(resolved_seq).isdigit() else str(resolved_seq)
+            str(resolved_seq).zfill(2)
+            if str(resolved_seq).isdigit()
+            else str(resolved_seq)
         )
 
         start_agent_id = agent_id or "opencode"
